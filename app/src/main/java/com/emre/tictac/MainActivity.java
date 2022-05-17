@@ -44,12 +44,17 @@ public class MainActivity extends AppCompatActivity {
     }
     public void click(View view){
         counter+=1;
+        if(counter == 9){
+            reset.setVisibility(View.VISIBLE);
+            exit.setVisibility(View.VISIBLE);
+            textView.setText("DRAW");
+        }
         if(view.getTag().toString().equals("1")){
             if (counter % 2 == 0){
                 button1.setText("O");
                 button1.setEnabled(false);
             }
-            else{
+            else{ 
                 button1.setText("X");
                 button1.setEnabled(false);
             }
@@ -209,8 +214,12 @@ public class MainActivity extends AppCompatActivity {
         button7.setEnabled(false);
         button8.setEnabled(false);
         button9.setEnabled(false);
+
+
     }
     public void reset(View view){
+        reset.setVisibility(View.INVISIBLE);
+        exit.setVisibility(View.INVISIBLE);
         counter =0;
         button1.setText("");
         button2.setText("");
@@ -234,6 +243,8 @@ public class MainActivity extends AppCompatActivity {
         button7.setEnabled(true);
         button8.setEnabled(true);
         button9.setEnabled(true);
+
+
     }
     public void exit(View view){
         
